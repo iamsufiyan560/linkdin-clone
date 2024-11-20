@@ -1,7 +1,7 @@
 import "./App.css";
 import { Navigate, Route, Routes } from "react-router-dom";
 
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
 import { axiosInstance } from "./lib/axios";
 
@@ -45,6 +45,7 @@ function App() {
             element={!authUser ? <LoginPage /> : <Navigate to={"/"} />}
           />
         </Routes>
+        <Toaster />
       </Layout>
     </>
   );
