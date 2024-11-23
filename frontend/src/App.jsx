@@ -10,7 +10,7 @@ import LoginPage from "./pages/auth/LoginPage";
 import SignUpPage from "./pages/auth/SignUpPage";
 import Layout from "./components/layout/Layout";
 import NotificationsPage from "./pages/NotificationsPage";
-
+import PostPage from "./pages/PostPage";
 function App() {
   const { data: authUser, isLoading } = useQuery({
     queryKey: ["authUser"],
@@ -50,6 +50,10 @@ function App() {
             element={
               authUser ? <NotificationsPage /> : <Navigate to={"/login"} />
             }
+          />
+          <Route
+            path="/post/:postId"
+            element={authUser ? <PostPage /> : <Navigate to={"/login"} />}
           />
         </Routes>
         <Toaster />
