@@ -51,10 +51,6 @@ function App() {
               authUser ? <NotificationsPage /> : <Navigate to={"/login"} />
             }
           />
-          <Route
-            path="/post/:postId"
-            element={authUser ? <PostPage /> : <Navigate to={"/login"} />}
-          />
         </Routes>
         <Toaster />
       </Layout>
