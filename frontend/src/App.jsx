@@ -12,6 +12,7 @@ import Layout from "./components/layout/Layout";
 import NotificationsPage from "./pages/NotificationsPage";
 import PostPage from "./pages/PostPage";
 import NetworkPage from "./pages/NetworkPage";
+import ProfilePage from "./pages/ProfilePage";
 function App() {
   const { data: authUser, isLoading } = useQuery({
     queryKey: ["authUser"],
@@ -52,7 +53,6 @@ function App() {
               authUser ? <NotificationsPage /> : <Navigate to={"/login"} />
             }
           />
-
           <Route
             path="/network"
             element={authUser ? <NetworkPage /> : <Navigate to={"/login"} />}
@@ -60,6 +60,10 @@ function App() {
           <Route
             path="/post/:postId"
             element={authUser ? <PostPage /> : <Navigate to={"/login"} />}
+          />
+          <Route
+            path="/profile/:username"
+            element={authUser ? <ProfilePage /> : <Navigate to={"/login"} />}
           />
         </Routes>
         <Toaster />
